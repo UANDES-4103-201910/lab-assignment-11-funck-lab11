@@ -9,16 +9,33 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
-    <header>
-      <ul class="hmenu">
-        <%= link_to('Home', :root) %>
-        <%= render 'devise/menu/registration_items' %>
-        <%= render 'devise/menu/login_items' %>
-        <%= render 'shopping_carts/shopping_cart' %>
-      </ul>
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
+    <header class="container-fluid d-flex navbar-text border bg-light">
+      <div class="col d-flex justify-content-begin">
+        <h1><%= link_to('TicketTopia', :root) %></h1>
+      </div>
+      <div class="col d-flex justify-content-end p-2">
+        <ul class="hmenu">
+          <%= render 'devise/menu/registration_items' %>
+          <%= render 'devise/menu/login_items' %>
+          <%= render 'shopping_carts/shopping_cart' %>
+        </ul>
+      </div>
     </header>
-    <%= yield %>
-  </body>
-</html>
+    <div class="container-fluid py-2">
+      <div class="row">
+        <div class="col">
+        </div>
+        <div class="col-8">
+          <% if notice %>
+          <p class="notice"><%= notice %></p>
+          <% end %>
+          <% if alert %>
+          <p class="alert"><%= alert %></p>
+          <% end %>
+          <%= yield %>
+        </div>
+        <div class="col">
+        </div>
+      </div>
+    </body>
+  </html>
