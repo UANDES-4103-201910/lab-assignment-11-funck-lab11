@@ -9,18 +9,34 @@
       <% end %>
       </ul>
     </div>
-  <% end %>
+    <% end %>
 
-  <%= form.label :name %>
-  <%= form.text_field :name %>
-  <%= form.label :description %>
-  <%= form.text_area :description, cols: 60, rows: 10 %>
-  <%= form.label :start_date %>
-  <%= date_select :event, :start_date %>
-  <%= form.label :event_venue_id %>
-  <%= form.select(:event_venue_id, options_from_collection_for_select(EventVenue.all, :id, :name))%>
+    <div class="form-group">
+    <%= form.label :name %>
+    <%= form.text_field :name, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= form.label :description %>
+      <%= form.text_area :description, cols: 60, rows: 10, class: 'form-control' %>
+    </div>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+    <div class="form-row">
+        <div class="form-group col">
+          <%= form.label :start_date %><br>
+          <%= date_select :event, :start_date, class: 'form-control' %>
+        </div>
+        <div class="form-group col">
+          <%= form.label :event_venue_id %><br>
+          <%= form.select(:event_venue_id, options_from_collection_for_select(EventVenue.all, :id, :name), class: 'form-control')%>
+        </div>
+        <div class="form-group col">
+          <%= form.label :avatar%>
+          <%= form.file_field :avatar, class: 'form-control-file'%>
+        </div>
+    </div>
+
+    <div class="actions">
+      <%= form.submit%>
+    </div>
+
 <% end %>
